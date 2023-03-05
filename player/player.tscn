@@ -1,0 +1,353 @@
+[gd_scene load_steps=28 format=3 uid="uid://c88w0xx3pltiy"]
+
+[ext_resource type="Texture2D" uid="uid://cjf7038vpglj6" path="res://models/characters/Robot/Tilesheet/character_robot_sheetHD.png" id="1_adknm"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_dm0ud"]
+[ext_resource type="Texture2D" uid="uid://b6vhos681wlsn" path="res://models/characters/Robot/PNG/Poses HD/character_robot_idle.png" id="3_xv1sm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvyl6"]
+size = Vector2(130, 76)
+
+[sub_resource type="Animation" id="Animation_rrg2b"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_pd7dw"]
+resource_name = "idle_down"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mqv1p"]
+resource_name = "idle_left"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="Animation" id="Animation_8votq"]
+resource_name = "idle_right"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kjh80"]
+resource_name = "idle_up"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rqc5u"]
+resource_name = "walk_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7m1xh"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rg1s8"]
+_data = {
+"RESET": SubResource("Animation_rrg2b"),
+"idle_down": SubResource("Animation_pd7dw"),
+"idle_left": SubResource("Animation_mqv1p"),
+"idle_right": SubResource("Animation_8votq"),
+"idle_up": SubResource("Animation_kjh80"),
+"walk_left": SubResource("Animation_rqc5u"),
+"walk_right": SubResource("Animation_7m1xh")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0nomq"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqxvr"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kgq66"]
+animation = &"idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q1t4t"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_wkbqk"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0nomq")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_uqxvr")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_kgq66")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_q1t4t")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2htxb"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ildwj"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nj44n"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_odwvu"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_vmmv4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_2htxb")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ildwj")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_nj44n")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_odwvu")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7m4mu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7u8tq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yaqn4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eky8g"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_wkbqk")
+states/Idle/position = Vector2(341, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_vmmv4")
+states/Walk/position = Vector2(559, 100)
+transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_7m4mu"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_7u8tq"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_yaqn4")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_5rr5u"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dm0ud")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_adknm")
+hframes = 9
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 88)
+shape = SubResource("RectangleShape2D_jvyl6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rg1s8")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_eky8g")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_5rr5u")
+parameters/Idle/blend_position = Vector2(0.0259515, 0.0742358)
+parameters/Walk/blend_position = Vector2(0.0242214, 0.0218341)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+texture = ExtResource("3_xv1sm")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(98.9583, 73.6111, 90.625, 74.3056, 80.9028, 78.4722, 73.9583, 84.0278, 68.4028, 87.5, 64.9306, 88.8889, 63.5417, 94.4445, 62.1528, 97.9167, 60.7639, 101.389, 55.9028, 101.389, 58.6806, 120.833, 47.5695, 128.472, 45.4861, 135.417, 47.5695, 145.139, 51.7361, 150.694, 55.9028, 152.778, 48.9583, 158.333, 48.2639, 164.583, 49.6528, 170.833, 41.3195, 179.861, 36.4583, 184.028, 35.7639, 192.361, 34.375, 199.306, 33.6806, 206.944, 35.7639, 215.972, 35.7639, 221.528, 29.5139, 228.472, 32.9861, 239.583, 37.8472, 243.056, 45.4861, 245.139, 46.1806, 238.194, 40.625, 234.722, 40.625, 228.472, 46.875, 230.556, 51.7361, 228.472, 55.2083, 225.694, 57.9861, 227.083, 58.6806, 231.25, 55.9028, 234.028, 60.7639, 241.667, 65.625, 236.806, 67.0139, 228.472, 64.9306, 220.139, 60.7639, 215.972, 55.2083, 213.889, 51.0417, 211.111, 52.4306, 200.694, 59.375, 194.444, 59.375, 188.194, 59.375, 184.028, 62.1528, 184.028, 63.5417, 191.667, 64.9306, 200.694, 64.9306, 209.722, 64.9306, 214.583, 67.7083, 220.139, 69.0972, 227.083, 65.625, 240.972, 57.9861, 249.306, 57.9861, 256.25, 94.0972, 255.556, 94.0972, 219.444, 98.9583, 220.139, 98.2639, 255.556, 133.681, 255.556, 132.986, 248.611, 123.264, 238.194, 123.025, 220.214, 125.347, 201.389, 128.819, 181.25, 132.986, 195.139, 139.931, 201.389, 140.625, 210.417, 136.458, 215.278, 125.347, 220.833, 125.347, 234.028, 130.208, 240.972, 135.764, 234.722, 133.681, 225.694, 136.458, 225, 142.014, 230.556, 151.042, 229.861, 151.042, 234.722, 144.097, 237.5, 144.792, 245.139, 155.208, 243.056, 160.764, 230.556, 157.986, 221.528, 156.597, 215.278, 157.292, 211.111, 155.208, 194.444, 155.208, 183.333, 151.042, 177.778, 145.486, 173.611, 142.708, 168.75, 141.319, 160.417, 137.153, 154.167, 149.653, 148.611, 153.819, 136.111, 149.653, 127.778, 144.097, 122.917, 137.847, 121.528, 140.625, 101.389, 135.764, 102.083, 130.208, 86.8056, 126.042, 86.1111, 121.875, 80.5556, 112.153, 76.3889)
+uv = PackedVector2Array(98.9583, 73.6111, 90.625, 74.3056, 80.9028, 78.4722, 73.9583, 84.0278, 68.4028, 87.5, 64.9306, 88.8889, 63.5417, 94.4445, 62.1528, 97.9167, 60.7639, 101.389, 55.9028, 101.389, 58.6806, 120.833, 47.5695, 128.472, 45.4861, 135.417, 47.5695, 145.139, 51.7361, 150.694, 55.9028, 152.778, 48.9583, 158.333, 48.2639, 164.583, 49.6528, 170.833, 41.3195, 179.861, 36.4583, 184.028, 35.7639, 192.361, 34.375, 199.306, 33.6806, 206.944, 35.7639, 215.972, 35.7639, 221.528, 29.5139, 228.472, 32.9861, 239.583, 37.8472, 243.056, 45.4861, 245.139, 46.1806, 238.194, 40.625, 234.722, 40.625, 228.472, 46.875, 230.556, 51.7361, 228.472, 55.2083, 225.694, 57.9861, 227.083, 58.6806, 231.25, 55.9028, 234.028, 60.7639, 241.667, 65.625, 236.806, 67.0139, 228.472, 64.9306, 220.139, 60.7639, 215.972, 55.2083, 213.889, 51.0417, 211.111, 52.4306, 200.694, 59.375, 194.444, 59.375, 188.194, 59.375, 184.028, 62.1528, 184.028, 63.5417, 191.667, 64.9306, 200.694, 64.9306, 209.722, 64.9306, 214.583, 67.7083, 220.139, 69.0972, 227.083, 65.625, 240.972, 57.9861, 249.306, 57.9861, 256.25, 94.0972, 255.556, 94.0972, 219.444, 98.9583, 220.139, 98.2639, 255.556, 133.681, 255.556, 132.986, 248.611, 123.264, 238.194, 124.653, 215.278, 125.347, 201.389, 128.819, 181.25, 132.986, 195.139, 139.931, 201.389, 140.625, 210.417, 136.458, 215.278, 125.347, 220.833, 125.347, 234.028, 130.208, 240.972, 135.764, 234.722, 133.681, 225.694, 136.458, 225, 142.014, 230.556, 151.042, 229.861, 151.042, 234.722, 144.097, 237.5, 144.792, 245.139, 155.208, 243.056, 160.764, 230.556, 157.986, 221.528, 156.597, 215.278, 157.292, 211.111, 155.208, 194.444, 155.208, 183.333, 151.042, 177.778, 145.486, 173.611, 142.708, 168.75, 141.319, 160.417, 137.153, 154.167, 149.653, 148.611, 153.819, 136.111, 149.653, 127.778, 144.097, 122.917, 137.847, 121.528, 140.625, 101.389, 135.764, 102.083, 130.208, 86.8056, 126.042, 86.1111, 121.875, 80.5556, 112.153, 76.3889)
+bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0.39, 0.39, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/head", PackedFloat32Array(1, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 1, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 1, 0.78, 1, 1), "hip/chest/arm_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/arm_left/hand_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 1, 1, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/arm_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/chest/arm_right/hand_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/leg_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0.78, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/leg_left/calf_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/leg_left/calf_left/foot_left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/leg_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/leg_right/calf_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/leg_right/calf_right/foot_right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.78, 0.78, 0.78, 0.78, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+position = Vector2(96, 254)
+
+[node name="hip" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(1, -41)
+rest = Transform2D(1, 0, 0, 1, 1, -41)
+
+[node name="chest" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-1, -27)
+rest = Transform2D(1, 0, 0, 1, -1, -27)
+
+[node name="head" type="Bone2D" parent="Skeleton2D/hip/chest"]
+position = Vector2(0, -22)
+rotation = -1.57408
+scale = Vector2(1, 4.83211)
+rest = Transform2D(-0.00328568, -0.999995, 4.83208, -0.0158768, 0, -22)
+
+[node name="arm_left" type="Bone2D" parent="Skeleton2D/hip/chest"]
+position = Vector2(-41, -25)
+rest = Transform2D(1, 0, 0, 1, -41, -25)
+
+[node name="hand_left" type="Bone2D" parent="Skeleton2D/hip/chest/arm_left"]
+position = Vector2(-10, 47)
+rotation = 1.59337
+rest = Transform2D(-0.0225698, 0.999745, -0.999745, -0.0225698, -10, 47)
+
+[node name="arm_right" type="Bone2D" parent="Skeleton2D/hip/chest"]
+position = Vector2(41, -24)
+rest = Transform2D(1, 0, 0, 1, 41, -24)
+
+[node name="hand_right" type="Bone2D" parent="Skeleton2D/hip/chest/arm_right"]
+position = Vector2(10, 50)
+rotation = 1.60213
+rest = Transform2D(-0.031331, 0.999509, -0.999509, -0.031331, 10, 50)
+
+[node name="leg_left" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(-17, 7)
+rest = Transform2D(1, 0, 0, 1, -17, 7)
+
+[node name="calf_left" type="Bone2D" parent="Skeleton2D/hip/leg_left"]
+position = Vector2(1, 15)
+rest = Transform2D(1, 0, 0, 1, 1, 15)
+
+[node name="foot_left" type="Bone2D" parent="Skeleton2D/hip/leg_left/calf_left"]
+position = Vector2(4, 14)
+rotation = 3.09012
+rest = Transform2D(-0.998676, 0.0514477, -0.0514477, -0.998676, 4, 14)
+
+[node name="leg_right" type="Bone2D" parent="Skeleton2D/hip"]
+position = Vector2(14, 7)
+rest = Transform2D(1, 0, 0, 1, 14, 7)
+
+[node name="calf_right" type="Bone2D" parent="Skeleton2D/hip/leg_right"]
+position = Vector2(1, 12)
+rest = Transform2D(1, 0, 0, 1, 1, 12)
+
+[node name="foot_right" type="Bone2D" parent="Skeleton2D/hip/leg_right/calf_right"]
+position = Vector2(-6, 17)
+rotation = 0.0643942
+rest = Transform2D(0.997927, 0.0643497, -0.0643497, 0.997927, -6, 17)
