@@ -29,6 +29,7 @@ polygon = PackedVector2Array(-294, 62, -446, -4, -586, 134, -608, -171, -415, -2
 [node name="Node2D" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
+position = Vector2(95.9999, 24)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_d8k3n")
 

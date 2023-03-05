@@ -39,3 +39,4 @@ func look_at_mouse() -> void:
 	var mouse_direction: Vector2 = position.direction_to(get_global_mouse_position())
 	animation_tree.set("parameters/Idle/blend_position", mouse_direction)
 	animation_tree.set("parameters/Walk/blend_position", mouse_direction)
+
