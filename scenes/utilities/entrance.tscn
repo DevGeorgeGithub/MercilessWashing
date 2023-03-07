@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpgdggl4cajx1"]
+
+[ext_resource type="Script" path="res://scenes/utilities/Entrance.gd" id="1_t22fp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsqld"]
+
+[node name="Entrance" type="Area2D"]
+script = ExtResource("1_t22fp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jsqld")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

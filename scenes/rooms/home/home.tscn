@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://cum82n23x2f80"]
+
+[ext_resource type="Texture2D" uid="uid://x3kxeeke1jwh" path="res://assets/sprites/scenes/rooms/home/homev2.png" id="1_e4wnf"]
+[ext_resource type="PackedScene" uid="uid://dm383f10fh08b" path="res://player/player.tscn" id="2_psu7n"]
+[ext_resource type="PackedScene" path="res://scenes/utilities/camera.tscn" id="3_4g71h"]
+[ext_resource type="Texture2D" uid="uid://bayxbfg3eki7v" path="res://assets/sprites/scenes/rooms/home/light.png" id="4_rga2j"]
+[ext_resource type="PackedScene" uid="uid://bpgdggl4cajx1" path="res://scenes/utilities/entrance.tscn" id="5_4i7y0"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a3s6g"]
+polygon = PackedVector2Array(76, -12, 68, -12, 63, -4, 65, 11, 53, 17, 42, 53, 43, 75, 54, 58, 52, 166, 69, 168, 71, 75, 73, 76, 78, 171, 95, 168, 91, 62, 98, 73, 104, 62, 90, 25, 89, 14, 80, 10, 82, -10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qimqf"]
+size = Vector2(11.6469, 188.34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqmq5"]
+size = Vector2(975.423, 64.3328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ki10"]
+size = Vector2(885.65, 61.1932)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5605v"]
+size = Vector2(1917, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp3eg"]
+size = Vector2(56.8329, 291.735)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lk6ad"]
+polygon = PackedVector2Array(-276, 107, -453, 35, -567, 206, -567, -159, -234, -264, -627, -261, -625, 487, -265, 490, -491, 413, -390, 174)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_e4wnf")
+
+[node name="Player" parent="." instance=ExtResource("2_psu7n")]
+scale = Vector2(2, 2)
+Speed = 200.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Player"]
+visible = false
+position = Vector2(100, 7.2)
+scale = Vector2(0.8, 0.8)
+occluder = SubResource("OccluderPolygon2D_a3s6g")
+
+[node name="Camera2D" parent="." instance=ExtResource("3_4g71h")]
+scale = Vector2(2, 2)
+zoom = Vector2(0.86, 0.89)
+
+[node name="top_left" parent="Camera2D/Limits" index="0"]
+position = Vector2(-671, -354)
+
+[node name="bottom_right" parent="Camera2D/Limits" index="1"]
+position = Vector2(660, 375)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="door_left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(540.998, -207.94)
+rotation = 0.00600109
+scale = Vector2(1.72, -2.52)
+shape = SubResource("RectangleShape2D_qimqf")
+
+[node name="toward_wall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(33.2886, -164.012)
+rotation = -0.000639468
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hqmq5")
+
+[node name="window" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-647, 160)
+rotation = -1.13728
+shape = SubResource("RectangleShape2D_6ki10")
+
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(13, 391)
+shape = SubResource("RectangleShape2D_5605v")
+
+[node name="door_right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(726, 3)
+rotation = 0.0142008
+scale = Vector2(1.72, -2.52)
+shape = SubResource("RectangleShape2D_xp3eg")
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+visible = false
+position = Vector2(-550, -127)
+scale = Vector2(1.00586, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_filter_smooth = 64.0
+texture = ExtResource("4_rga2j")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Lights"]
+visible = false
+position = Vector2(-46, -113)
+occluder = SubResource("OccluderPolygon2D_lk6ad")
+
+[node name="Entrance" parent="." instance=ExtResource("5_4i7y0")]
+position = Vector2(609, 9)
+rotation = 0.0286307
+scale = Vector2(2.60018, -17.3362)
+target_scene = "res://scenes/green_field/green_field.tscn"
+
+[editable path="Camera2D"]

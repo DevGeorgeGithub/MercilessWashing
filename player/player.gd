@@ -24,6 +24,10 @@ func _physics_process(_delta) -> void:
 
 	pick_new_state()
 
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+
+
 func update_animation_parameters(move_input : Vector2) -> void:
 	if move_input != Vector2.ZERO:
 		animation_tree.set("parameters/Idle/blend_position", move_input)
