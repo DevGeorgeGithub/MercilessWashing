@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvn70cjhskamu"]
+[gd_scene load_steps=13 format=3 uid="uid://cvn70cjhskamu"]
 
 [ext_resource type="Texture2D" uid="uid://yb7h83op21ya" path="res://assets/sprites/blocks/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="1_oektj"]
 [ext_resource type="Texture2D" uid="uid://dsnt5u86qld1t" path="res://assets/sprites/blocks/Tilesets/ground tiles/new tiles/Grass tiles v.2.png" id="2_4hvnf"]
 [ext_resource type="Texture2D" uid="uid://b4s2akotwcb0m" path="res://assets/sprites/blocks/Tilesets/ground tiles/new tiles/Tall Grass hill tiles v.2.png" id="3_7dl3a"]
-[ext_resource type="PackedScene" uid="uid://dm383f10fh08b" path="res://player/player.tscn" id="4_af8yc"]
-[ext_resource type="PackedScene" path="res://scenes/utilities/camera.tscn" id="5_jlqc1"]
-[ext_resource type="PackedScene" uid="uid://bpgdggl4cajx1" path="res://scenes/utilities/entrance.tscn" id="6_36ct7"]
+[ext_resource type="PackedScene" uid="uid://b8ewu3ew7h5yn" path="res://player/player.tscn" id="4_af8yc"]
+[ext_resource type="PackedScene" uid="uid://d15joc5as2lfm" path="res://scenes/utilities/camera.tscn" id="5_jlqc1"]
+[ext_resource type="PackedScene" path="res://scenes/utilities/entrance.tscn" id="6_36ct7"]
+[ext_resource type="PackedScene" uid="uid://x55ncr0al6en" path="res://menu/pause_menu/pause_menu.tscn" id="7_hi7k0"]
+[ext_resource type="PackedScene" uid="uid://33ls6gue15ko" path="res://scenes/ui/hud/hud.tscn" id="8_8cdbr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_parp7"]
 texture = ExtResource("1_oektj")
@@ -534,15 +536,44 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(75.5, 24)
 zoom = Vector2(1.8, 1.2)
 
-[node name="top_left" parent="Camera2D/Limits" index="0"]
-position = Vector2(-160, -218)
+[node name="Top_left" parent="Camera2D/Limits" index="0"]
+position = Vector2(-166, -218)
 
-[node name="bottom_right" parent="Camera2D/Limits" index="1"]
-position = Vector2(471, 312)
+[node name="Bottom_right" parent="Camera2D/Limits" index="1"]
+position = Vector2(473, 317)
 
 [node name="Entrance" parent="." instance=ExtResource("6_36ct7")]
 position = Vector2(-101, 20.5)
 scale = Vector2(1.31492, 18.6338)
 target_scene = "res://scenes/rooms/home/home.tscn"
 
+[node name="CanvasLayer" parent="." instance=ExtResource("7_hi7k0")]
+
+[node name="HUD" parent="." instance=ExtResource("8_8cdbr")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -85.0
+offset_top = -111.0
+offset_right = 1195.0
+offset_bottom = 959.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="hp_bar" parent="HUD" index="0"]
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 2560.0
+offset_bottom = 152.0
+
+[node name="inventory" parent="HUD" index="1"]
+offset_left = 2.0
+offset_top = 1012.0
+offset_right = 2139.0
+offset_bottom = 1225.0
+
 [editable path="Camera2D"]
+[editable path="HUD"]

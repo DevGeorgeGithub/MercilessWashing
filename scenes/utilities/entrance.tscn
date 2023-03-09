@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpgdggl4cajx1"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://scenes/utilities/Entrance.gd" id="1_t22fp"]
+[ext_resource type="Script" path="res://scenes/utilities/entrance.gd" id="1_t22fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsqld"]
 

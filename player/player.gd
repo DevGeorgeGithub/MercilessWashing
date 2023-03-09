@@ -8,7 +8,7 @@ extends CharacterBody2D
 func _ready() -> void:
 	update_animation_parameters(starting_direction)
 
-func _physics_process(_delta) -> void:
+func _physics_process(_delta: float) -> void:
 	var input_direction: Vector2 = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -24,13 +24,8 @@ func _physics_process(_delta) -> void:
 
 	pick_new_state()
 
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
-
-
-func update_animation_parameters(move_input : Vector2) -> void:
+func update_animation_parameters(move_input: Vector2) -> void:
 	if move_input != Vector2.ZERO:
-		animation_tree.set("parameters/Idle/blend_position", move_input)
 		animation_tree.set("parameters/Walk/blend_position", move_input)
 
 func pick_new_state() -> void:
@@ -42,5 +37,4 @@ func pick_new_state() -> void:
 func look_at_mouse() -> void:
 	var mouse_direction: Vector2 = position.direction_to(get_global_mouse_position())
 	animation_tree.set("parameters/Idle/blend_position", mouse_direction)
-	animation_tree.set("parameters/Walk/blend_position", mouse_direction)
 

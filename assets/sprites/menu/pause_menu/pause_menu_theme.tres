@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cfbk3sh8oh837"]
+
+[ext_resource type="FontFile" uid="uid://civk48s3vi8qx" path="res://assets/sprites/menu/pause_menu/font/Jost-Light.ttf" id="1_hlnfo"]
+[ext_resource type="Texture2D" uid="uid://l6wrh8amaw47" path="res://assets/sprites/menu/pause_menu/pref_overlay_hover.png" id="2_dk5lg"]
+[ext_resource type="Texture2D" uid="uid://dh2xmehmuct0v" path="res://assets/sprites/menu/pause_menu/pref_overlay_ground.png" id="3_mmj5c"]
+[ext_resource type="Texture2D" uid="uid://c0wka5cghara4" path="res://assets/sprites/menu/pause_menu/pref_overlay.png" id="4_16sa2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7b0d"]
+atlas = ExtResource("2_dk5lg")
+region = Rect2(1086.47, 416.744, 583.056, 64.3077)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yud1e"]
+texture = SubResource("AtlasTexture_s7b0d")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndshy"]
+atlas = ExtResource("3_mmj5c")
+region = Rect2(1084.72, 547.195, 587.344, 68.5948)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmp5l"]
+texture = SubResource("AtlasTexture_ndshy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04dvr"]
+texture = ExtResource("4_16sa2")
+
+[resource]
+default_font = ExtResource("1_hlnfo")
+default_font_size = 35
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_hlnfo")
+Button/styles/hover = SubResource("StyleBoxTexture_yud1e")
+Button/styles/normal = SubResource("StyleBoxTexture_qmp5l")
+Panel/styles/panel = SubResource("StyleBoxTexture_04dvr")

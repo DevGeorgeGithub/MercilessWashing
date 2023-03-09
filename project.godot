@@ -15,6 +15,10 @@ run/main_scene="res://scenes/rooms/home/home.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scenes/singleton/global.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
