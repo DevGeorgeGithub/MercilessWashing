@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnicvusu7k7y8"]
+[gd_scene load_steps=13 format=3 uid="uid://dnicvusu7k7y8"]
 
 [ext_resource type="Texture2D" uid="uid://x3kxeeke1jwh" path="res://assets/sprites/scenes/rooms/home/homev2.png" id="1_e4wnf"]
 [ext_resource type="PackedScene" uid="uid://b8ewu3ew7h5yn" path="res://player/player.tscn" id="2_psu7n"]
 [ext_resource type="PackedScene" uid="uid://d15joc5as2lfm" path="res://scenes/utilities/camera.tscn" id="3_4g71h"]
-[ext_resource type="Texture2D" uid="uid://bayxbfg3eki7v" path="res://assets/sprites/scenes/rooms/home/light.png" id="4_rga2j"]
 [ext_resource type="PackedScene" path="res://scenes/utilities/entrance.tscn" id="5_4i7y0"]
 [ext_resource type="PackedScene" uid="uid://33ls6gue15ko" path="res://scenes/ui/hud/hud.tscn" id="6_7wxgq"]
 [ext_resource type="PackedScene" uid="uid://x55ncr0al6en" path="res://menu/pause_menu/pause_menu.tscn" id="7_83dbi"]
@@ -12,32 +11,28 @@
 polygon = PackedVector2Array(76, -12, 68, -12, 63, -4, 65, 11, 53, 17, 42, 53, 43, 75, 54, 58, 52, 166, 69, 168, 71, 75, 73, 76, 78, 171, 95, 168, 91, 62, 98, 73, 104, 62, 90, 25, 89, 14, 80, 10, 82, -10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qimqf"]
-size = Vector2(11.6469, 188.34)
+size = Vector2(98.2226, 188.34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqmq5"]
-size = Vector2(975.423, 64.3328)
+size = Vector2(2644.02, 73.3407)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ki10"]
-size = Vector2(885.65, 61.1932)
+size = Vector2(1558.42, 61.1932)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5605v"]
-size = Vector2(1917, 28)
+size = Vector2(3847, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp3eg"]
 size = Vector2(56.8329, 291.735)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lk6ad"]
-polygon = PackedVector2Array(-276, 107, -453, 35, -567, 206, -567, -159, -234, -264, -627, -261, -625, 487, -265, 490, -491, 413, -390, 174)
-
-[node name="Node2D" type="Node2D"]
+[node name="home" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_e4wnf")
 
 [node name="Player" parent="." instance=ExtResource("2_psu7n")]
-scale = Vector2(2, 2)
-Speed = 200.0
+scale = Vector2(5, 5)
+Speed = 700.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -48,84 +43,56 @@ position = Vector2(100, 7.2)
 scale = Vector2(0.8, 0.8)
 occluder = SubResource("OccluderPolygon2D_a3s6g")
 
-[node name="HUD" parent="." instance=ExtResource("6_7wxgq")]
-offset_left = -576.0
-offset_top = -286.0
-offset_right = -576.0
-offset_bottom = -286.0
-
-[node name="hp_bar" parent="HUD" index="0"]
-offset_left = -92.0
-offset_top = -76.0
-offset_right = 2212.0
-offset_bottom = 74.0
-
-[node name="inventory" parent="HUD" index="1"]
-offset_left = -91.0
-offset_right = 2131.0
-
 [node name="Camera2D" parent="." instance=ExtResource("3_4g71h")]
-scale = Vector2(2, 2)
-zoom = Vector2(0.865, 0.897)
-
-[node name="Top_left" parent="Camera2D/Limits" index="0"]
-position = Vector2(-663, -358)
-
-[node name="Bottom_right" parent="Camera2D/Limits" index="1"]
-position = Vector2(659, 354)
+scale = Vector2(5, 5)
+limit_left = -1920
+limit_top = -1080
+limit_right = 1920
+limit_bottom = 1080
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
 
 [node name="door_left" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(540.998, -207.94)
+position = Vector2(1469.49, -285.021)
 rotation = 0.00600109
 scale = Vector2(1.72, -2.52)
 shape = SubResource("RectangleShape2D_qimqf")
 
 [node name="toward_wall" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(33.2886, -164.012)
+position = Vector2(29, -304)
 rotation = -0.000639468
 shape = SubResource("RectangleShape2D_hqmq5")
 
 [node name="window" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-647, 160)
+position = Vector2(-1650.76, 263.642)
 rotation = -1.13728
 shape = SubResource("RectangleShape2D_6ki10")
 
 [node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(13, 391)
+position = Vector2(-0.5, 1099.5)
 shape = SubResource("RectangleShape2D_5605v")
 
 [node name="door_right" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(726, 3)
+position = Vector2(1896, 502)
 rotation = 0.0142008
 scale = Vector2(1.72, -2.52)
 shape = SubResource("RectangleShape2D_xp3eg")
 
-[node name="Lights" type="Node" parent="."]
-
-[node name="PointLight2D" type="PointLight2D" parent="Lights"]
-visible = false
-position = Vector2(-550, -127)
-scale = Vector2(1.00586, 1)
-energy = 0.5
-shadow_enabled = true
-shadow_filter_smooth = 64.0
-texture = ExtResource("4_rga2j")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Lights"]
-visible = false
-position = Vector2(-46, -113)
-occluder = SubResource("OccluderPolygon2D_lk6ad")
-
 [node name="Entrance" parent="." instance=ExtResource("5_4i7y0")]
-position = Vector2(609, 9)
+visible = false
+position = Vector2(1707, 132)
 rotation = 0.0286307
-scale = Vector2(2.60018, -17.3362)
+scale = Vector2(6.78177, 32.8789)
 target_scene = "res://scenes/green_field/green_field.tscn"
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_83dbi")]
 
-[editable path="HUD"]
+[node name="HUD" parent="." instance=ExtResource("6_7wxgq")]
+offset_left = -1920.0
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
 [editable path="Camera2D"]
+[editable path="CanvasLayer"]

@@ -3,12 +3,5 @@
 [ext_resource type="Script" path="res://scenes/utilities/camera.gd" id="1_h1dq7"]
 
 [node name="Camera2D" type="Camera2D"]
+editor_draw_limits = true
 script = ExtResource("1_h1dq7")
-
-[node name="Limits" type="Node" parent="."]
-
-[node name="Top_left" type="Marker2D" parent="Limits"]
-position = Vector2(-576, -324)
-
-[node name="Bottom_right" type="Marker2D" parent="Limits"]
-position = Vector2(576, 324)

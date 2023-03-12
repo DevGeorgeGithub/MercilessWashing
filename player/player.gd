@@ -6,8 +6,9 @@ extends CharacterBody2D
 @onready var playback = animation_tree.get("parameters/playback")
 
 func _ready() -> void:
+	global_position = global.global_position
 	update_animation_parameters(starting_direction)
-
+	
 func _physics_process(_delta: float) -> void:
 	var input_direction: Vector2 = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -37,4 +38,3 @@ func pick_new_state() -> void:
 func look_at_mouse() -> void:
 	var mouse_direction: Vector2 = position.direction_to(get_global_mouse_position())
 	animation_tree.set("parameters/Idle/blend_position", mouse_direction)
-

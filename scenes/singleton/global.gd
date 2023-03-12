@@ -1,5 +1,9 @@
 extends Node
 
+@onready var global_position: Vector2 = Vector2.ZERO
+
+
+#func _ready():
 # const POPUP_SCENE = preload("res://menu/pause_menu/pause_menu.tscn")
 
 
